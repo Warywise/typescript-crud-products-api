@@ -1,0 +1,24 @@
+DROP SCHEMA IF EXISTS MySchema;
+CREATE SCHEMA MySchema;
+
+CREATE TABLE MySchema.Users (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  username TEXT NOT NULL,
+  email TEXT NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE Trybesmith.Orders (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  userId INTEGER,
+  FOREIGN KEY (userId) REFERENCES Trybesmith.Users (id)
+);
+
+CREATE TABLE Trybesmith.Products (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  amount TEXT NOT NULL,
+  orderId INTEGER,
+  FOREIGN KEY (orderId) REFERENCES Trybesmith.Orders (id)
+);
+
