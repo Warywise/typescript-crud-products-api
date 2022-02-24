@@ -1,4 +1,4 @@
-# Projeto TypeScript Products API CRUD! :coin:
+# Projeto TypeScript Products API CRUD! 🛠️
 
 Nesse projeto, o objetivo era desenvolver um **CRUD** (_Create, Read, Update_ e _Delete_) de itens medievais, no formato de uma _API_ em estilo REST, utilizando _Typescript_ e criar alguns _endpoints_ que irão ler e escrever em um banco de dados através do **MySQL**.
 
