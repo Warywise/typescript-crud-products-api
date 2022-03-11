@@ -62,10 +62,10 @@ export default connection;
 O banco terá três tabelas: pessoas usuárias, pedidos e produtos.
 
 ```sql
-DROP SCHEMA IF EXISTS Trybesmith;
-CREATE SCHEMA Trybesmith;
+DROP SCHEMA IF EXISTS MySchema;
+CREATE SCHEMA MySchema;
 
-CREATE TABLE Trybesmith.Users (
+CREATE TABLE MySchema.Users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   username TEXT NOT NULL,
   classe TEXT NOT NULL,
@@ -73,18 +73,18 @@ CREATE TABLE Trybesmith.Users (
   password TEXT NOT NULL
 );
 
-CREATE TABLE Trybesmith.Orders (
+CREATE TABLE MySchema.Orders (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   userId INTEGER,
-  FOREIGN KEY (userId) REFERENCES Trybesmith.Users (id)
+  FOREIGN KEY (userId) REFERENCES MySchema.Users (id)
 );
 
-CREATE TABLE Trybesmith.Products (
+CREATE TABLE MySchema.Products (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   amount TEXT NOT NULL,
   orderId INTEGER,
-  FOREIGN KEY (orderId) REFERENCES Trybesmith.Orders (id)
+  FOREIGN KEY (orderId) REFERENCES MySchema.Orders (id)
 );
 ```
 
