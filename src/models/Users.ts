@@ -4,13 +4,13 @@ import connection from './connection';
 import { UserData, User, UserPass } from '../interfaces/userInterface';
 
 const GetAll = async (): Promise<UserData[]> => {
-  const [data] = await connection.execute('SELECT * FROM Trybesmith.Users');
+  const [data] = await connection.execute('SELECT * FROM MySchema.Users');
   return data as UserData[];
 };
 
 const Create = async ({ username, classe, level, password }: UserData): Promise<User> => {
   const [createResult] = await connection.execute<ResultSetHeader>(
-    'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
+    'INSERT INTO MySchema.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
     [username, classe, level, password],
   );
   const { insertId: id } = createResult;
@@ -22,7 +22,7 @@ const Create = async ({ username, classe, level, password }: UserData): Promise<
 
 const GetByQuery = async (query: string, value: string): Promise<UserPass[]> => {
   const [data] = await connection.execute(
-    `SELECT * FROM Trybesmith.Users WHERE ${query}=?`,
+    `SELECT * FROM MySchema.Users WHERE ${query}=?`,
     [value],
   );
   return data as UserPass[];
